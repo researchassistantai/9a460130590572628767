@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en" class="h-100"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <title>RA</title>
+  <link rel="icon" href="https://s1.ralabs.ca/static/images/fav.ico">
+  <link rel="apple-touch-icon" href="https://s1.ralabs.ca/static/ra_logo_v1.4.png">
+
+
+  <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  -->
+
+
+  <!-- this comes first -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!--
+  <script src="/static/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  -->
+
+  <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  <!--
+  <script src="/static/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  -->
+
+
+
+  <!-- this comes next -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!--
+  <script src="/static/js/jquery.min.js"></script>
+  -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  -->
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+
+
+<style>
+#cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+}
+@-webkit-keyframes spin {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+#cover-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:40px;height:40px;
+    border-style:solid;
+    border-color:#666666;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+
+
+
+  #outer {
+      border: 0px solid #ccc;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size:14px !important;
+
+      -webkit-box-shadow: 1px 1px 3px 1px rgba(207,207,207,1);
+      -moz-box-shadow: 1px 1px 3px 1px rgba(207,207,207,1);
+      box-shadow: 1px 1px 3px 1px rgba(207,207,207,1);
+  }
+
+  #inner {
+    border-top: 1px solid #DDDDDD;
+  }
+  #inner:first-child{
+    border:none;
+  }
+
+
+
+    .modal-backdrop {
+       background-color: white;
+       opacity: 0.7 !important;
+    }
+    div.modal-content{
+      -webkit-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19);
+      -moz-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19);
+      box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19);
+      border: 0px;
+    }
+    .modal-title {
+      font-family: 'Montserrat', sans-serif !important;
+      font-weight: 500;
+    }
+
+
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500;
+}
+h1 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.hamburger_fade {
+  -webkit-transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+  padding:0px;
+  margin-left: 10px;
+  border-radius:50%;
+  width: 36px;
+  height:36px;
+  float: left;
+  text-align: center;
+}
+
+div.hamburger_fade:hover, div.hamburger_fade:active {
+  background-color:#dddddd !important;
+}
+
+.container {
+  width: auto;
+  max-width: 680px; /* <----- width of the main content of the page */
+  padding: 0 15px;
+}
+
+.clf_option {
+  background-color: #e6e6e6;
+  border: 3px solid transparent !important;
+  color: #5c5c5c;
+  border-radius: 5px;
+}
+
+.clf_option:hover {
+  background-color: #e6e6e6 !important;
+  color: #5c5c5c;
+}
+
+.clf_selected {
+  /*border: 3px solid #7faef9 !important;*/
+  border: 3px solid #187bff !important;
+
+}
+
+.submitting {
+  opacity:0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
+.disable_select {
+  pointer-events: none;
+  cursor: default;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+a:hover {
+  color: #5695f5;
+}
+
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+
+
+/* footer settings */
+.footer {
+  background-color: #f5f5f5;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  height:76px !important;
+}
+
+/* the top nav bar: shows shadow when scrolling down */
+body > #header{position:fixed;}
+
+
+
+
+#header {
+    position: fixed;
+    width: 100%;
+    height: 68px !important;
+    background-color: white;
+    left: 0;
+    top: 0;
+    text-align: left;
+    z-index: 99;
+    padding-top:20px;
+}
+
+#header.active {
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* sidebar navigation settings */
+.bottommenu-button {
+  display:inline-block;
+  cursor:pointer;
+  font-weight:600;
+  color:#525252 !important;
+  font-size: 16px;
+  -webkit-transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+}
+
+.bottommenu-button:hover {
+  background-color: #c7ddff !important;
+}
+
+.bottommenu-button.active{
+  color:white !important;
+}
+
+.submit_button {
+  display:inline-block;
+  cursor:pointer;
+  font-weight:600;
+  font-size: 18px;
+  color:#525252 !important;
+  -webkit-transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+}
+
+.submit_button:hover {
+  background-color: #c7ddff !important;
+}
+
+.hide-bottommenu {
+  background-color: #f5f5f5;
+  position: fixed;
+  text-align: left;
+  bottom:-30px;
+  z-index: 50;
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  -webkit-transform: translate3d(0,370px,0);
+  -moz-transform: translate3d(0,370px,0);
+  -o-transform: translate3d(0,370px,0);
+  -ms-transform: translate3d(0,370px,0);
+  transform: translate3d(0,370px,0);
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.hide-bottommenu-shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.show-bottommenu {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
+/* sidebar navigation settings */
+.sidemenu-button {
+  display:inline-block;
+  cursor:pointer;
+}
+
+.hide-sidemenu {
+  background-color:white;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 100;
+  width: 250px;
+  height: 100%;
+  -webkit-transform: translate3d(-250px,0,0);
+  -moz-transform: translate3d(-250px,0,0);
+  -o-transform: translate3d(-250px,0,0);
+  -ms-transform: translate3d(-250px,0,0);
+  transform: translate3d(-250px,0,0);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.hide-sidemenu-shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.show-sidemenu {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.disabled {
+  opacity: 0.5 !important;
+}
+
+
+
+
+
+
+
+
+
+/* flashcard */
+
+.fade {
+  opacity: 1;
+  -webkit-transition: opacity 0.1s linear;
+     -moz-transition: opacity 0.1s linear;
+      -ms-transition: opacity 0.1s linear;
+       -o-transition: opacity 0.1s linear;
+          transition: opacity 0.1s linear;
+}
+
+/* words */
+.token_group {
+  user-select:none;
+  transition:all 200ms;
+  color:#333;
+  background:transparent;
+  float: left;
+  font-size:16px;
+  cursor: pointer;
+  font-weight:400;
+  margin: 1px;
+  border-radius: 5px;
+  border: 3px solid transparent;
+}
+.word {
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+}
+.punct {
+  padding-top: 2px;
+  padding-right: 0px;
+  padding-bottom: 2px;
+  padding-left: 0px;
+}
+.selected {
+  user-select:none;
+  background:transparent;
+  /*border: 3px solid #7faef9 !important;*/
+  border: 3px solid #187bff !important;
+}
+
+.tagged {
+  user-select:none;
+  background:#fcdc3f;
+  border: 3px solid #fcdc3f;
+}
+/* basic formatting */
+button:focus {
+  outline:0;
+}
+
+.form-row {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.hidden_checkbox {
+  display:none;
+}
+/* other */
+.token_card{
+  padding: 10px;
+  background: #fff;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 600px;
+  min-height: 60px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
+}
+.quick_tags {
+  /*margin: 5px;
+  border-radius:5px;
+  border-color: #0678dd;
+  color: #0678dd;
+  background: white;*/
+  text-transform: Capitalize;
+}
+.button_row {
+  margin: 5px;
+  border-radius:5px;
+  border-color: #0678dd;
+  color: #0678dd;
+  text-transform: uppercase;
+  background: white;
+}
+
+.tag_name{
+  padding: 10px 10px 10px 4px;
+  font-size: 12px;
+  font-weight:700;
+  color: #187bff !important; /*0678dd*/
+}
+
+.truncate-text-2 {
+  -webkit-line-clamp: 2;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+a {
+  text-decoration: none !important;
+}
+a:visited {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
+a:active {
+  text-decoration: none !important;
+}
+
+
+/* top bar buttons */
+@media (max-width: 768px) {
+  .top_bar_buttons_outside_menu1 {
+    display: none;
+  }
+  .project_toggle1 {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .top_bar_buttons_outside_menu2 {
+    display: none;
+  }
+  .project_toggle2 {
+    display: none;
+  }
+}
+
+
+
+
+</style>
+</head>
+
+
+<!-- Page spinner -->
+<body class="d-flex flex-column h-100"><div id="cover-spin" style="display: none;"></div>
+<script>
+$(document).ready(function(){
+  $('#cover-spin').hide()
+});
+</script>
+
+
+
+
+
+
+
+<!-- sidenav bar -->
+<style>
+
+  :root {
+    --mainColor: #f1f1f1;
+  }
+
+  .sidebarmenuitem {
+    user-select:none;
+    cursor:pointer;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:16px;
+    padding-right:16px;
+    text-transform: Capitalize;
+    font-size:14px;
+    font-weight:600;
+    font-family: 'Montserrat', sans-serif;
+    color:#505050 !important;
+
+    background:
+       linear-gradient(
+         to bottom, var(--mainColor) 0%,
+         var(--mainColor) 100%
+       );
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 4px 0px;
+    color: #000;
+    text-decoration: none;
+    transition: background-size .2s;
+  }
+
+  .sidebarmenuitem:hover {
+    background-size: 4px 50px;
+  }
+
+  .sidebarmenuitem_child {
+    user-select:none;
+    cursor:pointer;
+    text-transform: Capitalize;
+    font-weight:500;
+    padding-left:50px;
+    padding-top:8px;
+    padding-bottom:8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    color:#505050 !important;
+
+    background:
+       linear-gradient(
+         to bottom, var(--mainColor) 0%,
+         var(--mainColor) 100%
+       );
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 4px 0px;
+    color: #000;
+    text-decoration: none;
+    transition: background-size .2s;
+  }
+
+  .sidebarmenuitem_child:hover {
+    background-size: 4px 50px;
+  }
+
+  div i.material-icons {
+      vertical-align: middle;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      margin-right: 8px;
+      font-size: 20px;
+      color: #505050;
+  }
+
+  .menu_arrow_left {
+    transform: rotate(-180deg);
+  }
+
+  .menu_arrow {
+    padding:3px 5px 5px 5px;
+    font-size:14px;
+    transition: .1s transform ease-in-out;
+  }
+
+  .combo_selected {
+    background-color: #f9f9f9;
+  }
+
+  .combo_selected_header_span {
+    border-bottom: 3px solid #505050;
+  }
+
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+
+<!-- HAMBURGER MENU ICON AND RA LOGO -->
+<nav id="header" class="d-flex;">
+  <div>
+
+      <!-- hamburger icon -->
+      <div class="pull-left overflow-hidden align-middle sidemenu-button hamburger_fade" id="sidemenu-button">
+        <div>
+          <i style="color:#808080; font-size:18px; margin-top: 9px;" class="fa fa-bars"></i>
+        </div>
+      </div>
+
+      <!-- logo -->
+      <div class="pull-left">
+        <div style="margin-left: 10px;" class="pull-left align-middle">
+          <img class="d-block" src="https://s1.ralabs.ca/static/images/ra_logo_v1.4.svg" alt="" width="36" height="36" focusable="false">
+        </div>
+      </div>
+
+      <!-- right hand side icons -->
+      <div class="pull-right" style="margin-right: 10px;">
+
+        <!-- user icon -->
+        <div class="dropdown pull-right">
+          <span class="pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer; padding:0px 12px 0px 12px; margin: 0px !important; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">
+            <i class="material-icons material-icons-outlined" style="font-size:28px; padding: 0px !important; margin: auto; ">account_circle</i>
+          </span>
+          <div class="dropdown-menu dropdown-menu-right" style="width:350px; margin-top:20px; margin-bottom:20px; -webkit-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); -moz-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); border: 0px;">
+            <!-- dropdown menu rows -->
+            <h6 class="dropdown-header montserrat text-center" style="color: black; font-size:13px; text-transform: uppercase; font-weight:600; padding-bottom: 0px !important; ">
+              System Superadmin</h6>
+            <div class="dropdown-header montserrat text-center" style="font-size:13px; padding-top: 2px !important;">
+              demo@ralabs.ca</div>
+            <div class="dropdown-header text-center montserrat">
+              <a href="https://s1.ralabs.ca/account/home/" style="color: #505050; padding: 0px 6px 0px 6px;">Manage your
+                account</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="text-center">
+              <a href="https://s1.ralabs.ca/account/logout" class="btn btn-light montserrat" style="cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px;">
+                Sign out
+              </a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header text-center" style="font-size:11px;">
+              <a href="https://s1.ralabs.ca/legal1#pp" target="_blank" class="nospin" style="color: #505050; padding: 0px 6px 0px 6px;">Privacy
+                Policy</a>•<a href="https://s1.ralabs.ca/legal1#tos" target="_blank" class="nospin" style="color: #505050; padding: 0px 6px 0px 6px;">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+      <!-- offline indicator -->
+      <div class="pull-right" id="offline_status" style="display:none;">
+
+        <!-- for smaller screens -->
+        <span style="padding-right: 0px; padding-left: 0px;" class="project_toggle2">
+          <i class="material-icons material-icons-outlined" style="font-size:28px; padding: 0px !important;">offline_bolt</i>
+        </span>
+
+        <!-- for larger screens -->
+        <span class="btn btn-white montserrat overflow-hidden project_toggle1" style="font-size: 13px; padding:2px 6px 2px 0px; margin: 0px 6px 0px 0px !important; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">
+          <i class="material-icons material-icons-outlined" style="font-size:28px; padding: 0px !important;">offline_bolt</i>You are offline
+        </span>
+
+      </div>
+      <script>
+      // check online/offline status. If offline => show offline indicator on page
+      $(document).ready(function(){
+          setInterval(function(){
+              if (navigator.onLine == false ) {
+                // user is offline, show offline indicator on page
+                $('#offline_status').show();
+              } else {
+                // user is online, make sure offline indicator is not shown
+                $('#offline_status').hide();
+              }
+          }, 5000);
+      });
+      </script>
+
+
+      </div>
+
+
+
+
+  </div>
+</nav>
+
+<!----------------------------------------------------------------------------->
+<main role="main" class="flex-shrink-0" style="margin-top:60px;">
+<div class="container overflow-auto" style="overflow: auto !important; margin-bottom:100px; margin-top:20px;">
+
+<!-- NOTES -------------------------------------------------------------------->
+
+<div class="alert alert-warning" style="margin-top:20px; margin-bottom:20px;">
+  <p><a href="https://s1.ralabs.ca/taggingstudio/flashcards/card/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC/340#" class="close" data-dismiss="alert" aria-label="close">×</a>
+
+    <!-- Last updated -->
+    </p><li>Last updated on <span class="datetime">2021-02-27 12:20</span></li>
+    <li>Tagged by <strong>you</strong></li>
+
+    
+
+    <!-- Viewing as -->
+    <li>Viewing as <strong>System Superadmin</strong></li>
+
+    
+
+    
+  <p></p>
+</div>
+
+<!-- end of notes ------------------------------------------------------------->
+
+
+<div class="modal fade" id="delete_projects_warning_modal" tabindex="-1" role="dialog" aria-labelledby="delete_projects_warning_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h6 class="modal-title" id="delete_projects_warning_modalTitle">Delete card</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size:14px;">
+        Are you sure you would like to delete this card?
+      </div>
+      <div class="modal-footer" style="border:0px;">
+				<span data-dismiss="modal" class="btn btn-light montserrat pull-left" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+		      Go back to safety
+		    </span>
+		    <span class="btn btn-primary montserrat pull-left delete_button" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+		      Delete
+		    </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="flag2_projects_warning_modal" tabindex="-1" role="dialog" aria-labelledby="flag2_projects_warning_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h6 class="modal-title" id="flag2_projects_warning_modalTitle">Flag flashcard</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size:14px;">
+        <!-- flag notes -->
+        <textarea class="form-control" id="flag_notes" rows="3"></textarea>
+      </div>
+      <div class="modal-footer" style="border:0px;">
+                <span data-dismiss="modal" class="btn btn-light montserrat pull-left" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+              Cancel
+            </span>
+            <span id="flag_button" class="flag_button btn btn-danger montserrat pull-left flag2_button" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+              Flag
+            </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="archive_projects_warning_modal" tabindex="-1" role="dialog" aria-labelledby="archive_projects_warning_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h6 class="modal-title" id="archive_projects_warning_modalTitle">Archive card</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size:14px;">
+        Are you sure you would like to archive this card?
+      </div>
+      <div class="modal-footer" style="border:0px;">
+				<span data-dismiss="modal" class="btn btn-light montserrat pull-left" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+		      Go back to safety
+		    </span>
+		    <span class="btn btn-primary montserrat pull-left archive_button" style="border: 0px !important; cursor:pointer; padding-left:20px; padding-right:20px; padding-top:8px; padding-bottom: 8px; margin-left:5px; margin-right: 5px; text-transform: uppercase; font-weight:600; font-size:13px !important;">
+		      Archive
+		    </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Title -->
+<h4 class="mt-3" style="-webkit-line-clamp: 2; overflow : hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">
+  2020.BU16.2.00244
+</h4>
+<p class="lead"></p>
+<!-- end of Title -->
+
+
+<!-- Body -->
+<div class="form-row">
+  <div class="col-md-12 mb-3">
+    <div id="flashcard" class="first_div">
+		
+			
+
+        
+          
+        
+
+        
+        <div class="token_group tagged entity" data-temp_span_id="0.0" data-label="None" data-label_hash="" data-ent_title="foobar" data-ent_id="2.0">
+        
+
+        <span class="word entity" data-temp_span_id="0.0" data-label="None" data-token_id="0" data-word="Toronto" data-char_offset_start="0" data-char_offset_end="7" data-ent_title="foobar" data-ent_id="2.0">
+            Toronto
+        </span>
+
+        
+          
+        
+
+
+        
+        
+
+      
+
+        
+          
+        
+
+        
+        
+
+        <span class="word entity" data-temp_span_id="0.0" data-label="None" data-token_id="1" data-word="Paramedic" data-char_offset_start="8" data-char_offset_end="17" data-ent_title="foobar" data-ent_id="2.0">
+            Paramedic
+        </span>
+
+        
+          
+        
+
+
+        
+        
+        <span class="tag_name" data-ent_id="2.0" data-ent_title="foobar">foobar</span>
+        
+        </div>
+        
+
+      
+
+        
+          
+        
+
+        
+        <div class="token_group  " data-temp_span_id="" data-label="" data-label_hash="" data-ent_title="" data-ent_id="">
+        
+
+        <span class="word " data-token_id="2" data-word="Services" data-char_offset_start="18" data-char_offset_end="26">
+            Services
+        </span>
+
+        
+          
+        
+
+
+        
+        
+        </div>
+        
+
+      
+		
+    </div>
+  </div>
+</div>
+<!-- end of Body -->
+
+
+
+
+
+
+</div>
+</main>
+
+
+
+
+<!-- MODALS ------------------------------------------------------------------->
+
+
+<!-- CLASSIFIERS modal -->
+<div class="modal fade" id="classifiers_menu_modal" tabindex="-1" role="dialog" aria-labelledby="classifiers_menu_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h5 class="modal-title montserrat" id="classifiers_menu_modalTitle">Classifiers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="container" id="classifier_menu">
+          
+          <div class="row mb-3 classifier_group" data-clf_id="1" data-clf_title="colors" data-me="1">
+            <div class="col-3 col-md-2 themed-grid-col">
+              <p><small class="text-muted" style="text-transform: uppercase;" data-id="1" data-title="colors">colors<br></small></p>
+            </div>
+            <div class="col-12 col-md-8 themed-grid-col">
+              
+              <div class="btn btn-outline-secondary btn-sm clf_option
+										
+											
+												clf_selected
+											
+										" style="margin:3px !important; cursor: pointer;" data-option_id="2" data-option_title="blue">
+								blue
+							</div>
+              
+              <div class="btn btn-outline-secondary btn-sm clf_option
+										
+											
+										" style="margin:3px !important; cursor: pointer;" data-option_id="1" data-option_title="red">
+								red
+							</div>
+              
+            </div>
+          </div>
+          
+
+
+
+
+          
+
+
+
+        </div>
+      </div>
+      <div class="modal-footer" style="border:0px;">
+        <span data-dismiss="modal" class="submit_flashcard pull-right" style="display:none; cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Submit</span>
+        <a href="https://s1.ralabs.ca/taggingstudio/classifiers/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC" target="_blank" class="pull-right nospin" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Learn more</a>
+        <span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of CLASSIFIERS modal -->
+
+
+
+<!-- ENTITIES modal -->
+<div class="modal fade" id="entities_menu_modal" tabindex="-1" role="dialog" aria-labelledby="entities_menu_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h5 class="modal-title montserrat" id="entities_menu_modalTitle">Entities</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="container" id="entities_menu">
+          <div class="row mb-3">
+            
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm visible_entity" style="margin:3px !important; font-size:14px; cursor: pointer;" data-ent_id="2" data-ent_title="foobar" data-label="None">foobar</div>
+            
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm visible_entity" style="margin:3px !important; font-size:14px; cursor: pointer;" data-ent_id="3" data-ent_title="foobar2" data-label="None">foobar2</div>
+            
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm visible_entity" style="margin:3px !important; font-size:14px; cursor: pointer;" data-ent_id="4" data-ent_title="foobar3" data-label="None">foobar3</div>
+            
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer" style="border:0px;">
+        <a href="https://s1.ralabs.ca/taggingstudio/entities/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC" target="_blank" class="pull-right nospin" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Learn more</a>
+        <span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of ENTITIES modal -->
+
+
+<!-- TOOLS modal -->
+<div class="modal fade" id="tools_menu_modal" tabindex="-1" role="dialog" aria-labelledby="tools_menu_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h5 class="modal-title montserrat" id="tools_menu_modalTitle">Tools</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container" id="tools_menu" style="font-size:14px;">
+          <div class="row mb-3">
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm" style="margin:3px !important; cursor: pointer;" id="clear">Reset</div>
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm" style="margin:3px !important; cursor: pointer;" id="deselect">Deselect All</div>
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm" style="margin:3px !important; cursor: pointer;" id="merge">Merge</div>
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm" style="margin:3px !important; cursor: pointer;" id="split">Split</div>
+            <div data-dismiss="modal" class="btn btn-outline-secondary btn-sm" style="margin:3px !important; cursor: pointer;" id="remove">Remove Tag</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer" style="border:0px;">
+        <span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-size:14px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of TOOLS modal -->
+
+
+<!-- Warning modal -->
+<div class="modal fade" id="warning_modal" tabindex="-1" role="dialog" aria-labelledby="warning_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h5 class="modal-title montserrat" id="warning_modalTitle">Incomplete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        Hmmm ... it looks like there are unselected classifiers. Please select at least one option from each classifier group before submitting.
+
+      </div>
+      <div class="modal-footer" style="border:0px;">
+				
+				<span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of Warning modal -->
+
+
+<!-- ERROR modal -->
+<div class="modal fade" id="error_modal" tabindex="-1" role="dialog" aria-labelledby="error_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:0px;">
+        <h5 class="modal-title montserrat" id="error_modalTitle">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+      </div>
+      <div class="modal-footer" style="border:0px;">
+        <a href="mailto:support@researchassistant.ai" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Contact support</a>
+        <span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of ERROR modal -->
+
+
+<!-- SAVED modal -->
+<div class="modal fade" id="saved_modal" tabindex="-1" role="dialog" aria-labelledby="saved_modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <div style="padding:10px;">
+        <p>Your changes have been saved.</p>
+        </div>
+      </div>
+      <div class="modal-footer" style="border:0px;">
+        <span data-dismiss="modal" class="pull-right" style="cursor:pointer; color: #187bff; padding:5px 10px 5px 10px; font-weight:500 !important; font-family: &#39;Montserrat&#39;, sans-serif !important;">Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of SAVED modal -->
+
+
+
+<!-- tagging studio footer ---------------------------------------------------->
+<!-- FOOTER SETTINGS -->
+<footer class="footer mt-auto py-3 navbar-fixed-bottom">
+
+  <!-- Bottom Menu Buttons -->
+  <div class="container" style="padding-bottom: 10px;">
+
+    
+
+    <ul class="nav nav-pills nav-fill">
+
+      <li class="nav-item">
+        <span data-toggle="modal" data-target="#classifiers_menu_modal" class="nav-link bottommenu-button montserrat " id="classifier_button">
+          <i class="material-icons material-icons-outlined" style="font-size:24px;  padding: 0px !important;">call_split</i>
+          <span class="hidden_when_narrow">Classifiers</span>
+          
+          <i class="material-icons" style="color: #187bff; font-size:16px; padding: 0px !important;">fiber_manual_record</i>
+          <!--
+          <span style="color: #187bff; font-weight:600; font-size:30px;">&bull;</span>
+          -->
+          
+        </span>
+      </li>
+
+      <li class="nav-item footer_button_wide">
+        <span data-toggle="modal" data-target="#entities_menu_modal" class="nav-link bottommenu-button montserrat " id="entities_button">
+          <i class="material-icons material-icons-outlined" style="font-size:24px; padding: 0px !important;">label</i>
+          <span class="hidden_when_narrow">Entities</span>
+        </span>
+      </li>
+
+      <li class="nav-item footer_button_wide">
+        <span data-toggle="modal" data-target="#tools_menu_modal" class="nav-link bottommenu-button montserrat " id="tools_button">
+        <i class="material-icons material-icons-outlined" style="font-size:24px; padding: 0px !important;">build</i>
+        <span class="hidden_when_narrow">Tools</span>
+      </span>
+      </li>
+
+      <li class="nav-item" style="display:none;">
+        <span data-toggle="modal" data-target="#warning_modal" class="nav-link bottommenu-button montserrat" id="warning_button"></span>
+        <span data-toggle="modal" data-target="#error_modal" class="nav-link bottommenu-button montserrat" id="error_button"></span>
+        <span data-toggle="modal" data-target="#saved_modal" class="nav-link bottommenu-button montserrat" id="saved_button"></span>
+      </li>
+
+      <li class="nav-item">
+
+        <!-- button  -->
+        <button class="btn btn-primary montserrat" type="button" disabled="" style="font-size:14px; display:none; padding-left:16px; padding-right:16px;" id="loading_button"><span class="spinner-grow spinner-grow-sm"></span>Submit</button>
+
+        <div class="btn-group">
+          <button class="btn btn-primary montserrat submit_flashcard footer_button_wide" style="font-size:14px; font-weight:600; padding-left:16px; padding-right:16px;">
+            <i class="material-icons" style="color: white; font-size:24px; padding: 0px !important;">save_alt</i>
+            <span class="hidden_when_narrow">Save</span>
+          </button>
+
+          <button style="border-left: 1px solid #0961d6;" id="action_button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu" style="font-size:14px; font-weight:600; -webkit-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); -moz-box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); box-shadow: 0px 6px 18px 3px rgba(0,0,0,0.19); border: 0px;">
+
+            
+
+            
+
+
+            <div class="dropdown-divider"></div>
+
+            <a class="navigate dropdown-item montserrat" onclick="goBack()"><i class="material-icons material-icons-outlined" style="color: #187bff; font-size:20px; padding: 0px !important;">exit_to_app</i>Exit</a>
+          </div>
+        </div>
+
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</footer>
+
+
+
+<!-- scripts ------------------------------------------------------------------>
+
+<script>
+$(document).ready(function(){
+
+$('#action_button').click( function(){
+  $(this).closest('.btn-group').toggleClass('dropup');
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// select tokens
+function token_select() {
+  if ($(this).hasClass('selected')) {
+    $(this).removeClass('selected');
+  } else {
+    $(this).addClass('selected');
+  }
+}
+$('div.token_group').click(token_select);
+
+////////////////////////////////////////////////////////////////////////////////
+// select classifier options
+function clf_option_selector() {
+  if ($(this).closest('.classifier_group').data('me')==1) {
+    // if mutually exclusive, make sure the other selected options within the same group are unselected before selecting this new one
+    $(this).closest('.classifier_group').find('.clf_option').not(this).removeClass('clf_selected');
+  }
+  $(this).toggleClass('clf_selected');
+
+	
+
+}
+$('div.clf_option').click(clf_option_selector);
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Reset
+var flashcard = $('#flashcard').html();
+$('div#clear').click( function(){
+  $('#flashcard').html(flashcard);
+  $('div.token_group').click(token_select);
+  $('button.new_tag').remove();
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Deselect all
+$('div#deselect').click( function(){
+  $($('div.token_group').get()).each(function (idx, divs) {
+    $(divs).removeClass('selected')
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Merge
+$("#merge").click(function(){
+  // first check to make sure the selected token groups are consecutive
+  var arr = [];
+  $($("div.selected > span.word").get()).each(function (idx, selected) {
+    var d = $(selected).data('token_id');
+    arr.push(d);
+  });
+  var arr = arr.sort(function(a, b){return a - b});
+  var results = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i+1] != arr[i]+1 && arr[arr.length-1]!=arr[i]){
+      results.push(arr[i]);
+    }
+  };
+  // if results length = 0, then that means they are consecutive
+  if (results.length == 0) {
+    consecutive = true
+  } else {
+    consecutive = false
+  }
+
+  // now extract the entity info. check over all entities to see if there are entities available.
+  if (consecutive==true) {
+    possible_entities = [];
+    $($("div.selected").get()).each(function (idx, selected) {
+      if (typeof $(selected).attr('data-ent_id') !== "undefined" && $(selected).attr('data-ent_id') !== "") {
+        a = new Object();
+        a.ent_id = $(selected).attr('data-ent_id');
+        a.ent_title = $(selected).attr('data-ent_title');
+        a.label = $(selected).attr('data-label');
+        a.label_hash = $(selected).attr('data-label_hash');
+        possible_entities.push(a);
+      }
+    });
+    ent_info = possible_entities[0];
+  } else {
+    alert('Your selected words are not in consecutive order!')
+    return false;
+  }
+
+
+
+  if (typeof ent_info !== "undefined" && typeof ent_info['ent_title'] !== "undefined") {
+    // if there is an entity to be applied to the merged div
+
+    // define new_div as placeholder for all the stuff
+    new_div = $( "<div></div>", {"class": "token_group merged_content selected entity", "data-ent_id": ent_info.ent_id, "data-ent_title": ent_info.ent_title, "data-label": ent_info.label, "data-label_hash": ent_info.label_hash });
+
+    // loop over each selected token group
+    $.each($("div.selected"),function (idx,j) {
+      $(j).find('span.tag_name').remove();
+      $(j).find('span.word').addClass('entity').attr('data-ent_id', ent_info.ent_id).attr('data-ent_title', ent_info.ent_title).attr('data-label', ent_info.label).attr('data-label_hash', ent_info.label_hash);
+      new_div.append($(j).html());
+    });
+
+    // make it highlighted in yellow
+    new_div.addClass('tagged');
+
+    // for formatting, add the entity info at the end of the new_div
+    new_div.append('<span class="tag_name" data-ent_id="'+ent_info.ent_id+'" data-ent_title="'+ent_info.ent_title+'" data-label="'+ent_info.label+'" data-label_hash="'+ent_info.label_hash+'">'+ent_info['ent_title']+'</span>');
+
+  }
+  else {
+    // if there are no entities available
+
+    // define new_div as placeholder for all the stuff
+    new_div = $( "<div></div>", {"class": "token_group merged_content selected"});
+
+    // loop over each selected token group
+    $.each($("div.selected"),function (idx,j) {
+      $(j).find('span.tag_name').remove();
+      $(j).find('span.word');
+      new_div.append($(j).html());
+    });
+  }
+  $("div.selected").addClass('to_be_removed');
+
+  // put the new div in front of the first selected div
+  $("div.selected").first().before(new_div);
+
+  // now delete all selected divs
+  $('div.to_be_removed').remove();
+
+  // make sure it is also selectable like the other token groups
+  $('div.merged_content').click(token_select);
+
+}); // end of merge
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Split
+$("#split").click(function(){
+  $.each($("div.selected"),function (idx,selected) {
+    $(selected).addClass('split');
+
+    // find out if this selected token group has an entity or not
+    ent_info = new Object();
+    ent_info.ent_id = $(selected).attr('data-ent_id');
+    ent_info.ent_title = $(selected).attr('data-ent_title');
+    ent_info.label = $(selected).attr('data-label');
+    ent_info.label_hash = $(selected).attr('data-label_hash');
+
+    if (typeof ent_info !== "undefined" && typeof ent_info['ent_title'] !== "undefined" && ent_info['ent_title'].length > 0 ) {
+      // take out span for entity
+      $(selected).find('span.tag_name').remove();
+
+      // now for each word in this token group, create a separate div to park the stuff in
+      $.each($(selected).find('span.word'),function (idx,word) {
+        new_div = $( "<div></div>", {"class": "token_group split_content selected tagged entity", "data-ent_id": ent_info.ent_id, "data-ent_title": ent_info.ent_title, "data-label": ent_info.label, "data-label_hash": ent_info.label_hash });
+        $(word).appendTo(new_div);
+        new_div.append('<span class="tag_name" data-ent_id="'+ent_info.ent_id+'" data-ent_title="'+ent_info.ent_title+'" data-label="'+ent_info.label+'" data-label_hash="'+ent_info.label_hash+'">'+ent_info['ent_title']+'</span>');
+        $(selected).before(new_div);
+      });
+    }
+    else {
+      // now for each word in this token group, create a separate div to park the stuff in
+      $.each($(selected).find('span.word'),function (idx,word) {
+        new_div = $( "<div></div>", {"class": "token_group split_content selected"});
+        $(word).appendTo(new_div);
+        $(selected).before(new_div);
+      });
+    }
+    $('.split').remove();
+    $('div.split_content').click(token_select);
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+// assign an entity to a group of words
+function ent_assign() {
+
+  // grab basic info first
+  var ent_id = $(this).data('ent_id');
+  var ent_title = $(this).data('ent_title');
+  var label = $(this).data('label');
+  var label_hash = $(this).data('label_hash');
+
+  var items = $("div.selected")
+  $.each(items,function (index,item) {
+    // if the group doesn't have a tag yet
+    if ($(item).find("span.tag_name").length == 0) {
+
+      // append the ent_title to the group
+      $(item).append('<span class="tag_name">'+ent_title+'</span>');
+
+      // for the word
+      $(item).find("span.word").addClass('entity');
+      $(item).find("span.word").attr('data-ent_id', ent_id);
+      $(item).find("span.word").attr('data-ent_title', ent_title);
+      $(item).find("span.word").attr('data-label', label);
+      $(item).find("span.word").attr('data-label_hash', label_hash);
+
+      // for the group
+      $(item).addClass('entity');
+      $(item).attr('data-ent_id', ent_id);
+      $(item).attr('data-ent_title', ent_title);
+      $(item).attr('data-label', label);
+      $(item).attr('data-label_hash', label_hash);
+      $(item).toggleClass('selected tagged');
+
+    }
+    // if the token already has one tag - we're going to switch it to the new one
+    else if ($(item).find("span.tag_name").length > 0) {
+
+      // re-append the ent_title to the group
+      $(item).find("span.tag_name").remove();
+      $(item).append('<span class="tag_name">'+ent_title+'</span>');
+
+      // for the word
+      $(item).find("span.word").addClass('entity');
+      $(item).find("span.word").attr('data-ent_id', ent_id);
+      $(item).find("span.word").attr('data-ent_title', ent_title);
+      $(item).find("span.word").attr('data-label', label);
+      $(item).find("span.word").attr('data-label_hash', label_hash);
+
+      // for the group
+      $(item).addClass('entity');
+      $(item).attr('data-ent_id', ent_id);
+      $(item).attr('data-ent_title', ent_title);
+      $(item).attr('data-label', label);
+      $(item).attr('data-label_hash', label_hash);
+      $(item).removeClass('selected');
+    }
+    // else do nothing
+    else {
+    }
+  });
+}
+$('div.visible_entity').click(ent_assign);
+
+
+////////////////////////////////////////////////////////////////////////////////
+// remove entity from a group of words
+$("#remove").click(function(){
+  $.each($("div.selected"),function (idx,j) {
+    if ($(j).find("span.tag_name").length > 0) {
+      $(j).find("span.tag_name").remove();
+      $(j).removeAttr('data-label');
+      $(j).removeAttr('data-ent_id');
+      $(j).removeAttr('data-ent_title');
+      $(j).removeAttr('data-label_hash');
+      $(j).removeClass('entity');
+      $(j).find('span.word.entity').removeAttr('data-label');
+      $(j).find('span.word.entity').removeAttr('data-ent_id');
+      $(j).find('span.word.entity').removeAttr('data-ent_title');
+      $(j).find('span.word.entity').removeAttr('data-label_hash');
+      $(j).find('span.word.entity').removeClass('entity');
+    }
+    $(j).removeClass('selected tagged');
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+// flag flashcard
+$('.flag_button').click( function(){
+  $('#cover-spin').show();
+  //$('#flag_button_loader').show();
+	//$('.flag_button').hide();
+  if ($('i.flag_button').hasClass('flagged')) {
+    var flag_command = 'unflag';
+  }
+  else {
+    var flag_command = 'flag';
+  }
+
+  var flag_notes = $('#flag_notes').val();
+
+
+  $.ajax({
+    url: "/taggingstudio/flashcards/card/post/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC/340",
+    data: {'packet': 'flag', 'flag_command': flag_command, 'flag_notes':flag_notes },
+    method: 'POST',
+    success: function(data) {
+      $('#cover-spin').hide();
+      var result = data['flag_result'];
+      $('i.flag_icon').toggleClass('flagged');
+      $('i.flag_icon').toggleClass('material-icons-outlined');
+      //$('#flag_button_loader').hide();
+			//$('.flag_button').show();
+      if (result=='unflagged') {
+        $('a.flag_button span').html("Flag");
+        $('#flag_button').html('Flag');
+      }
+      else {
+        $('a.flag_button span').html("Flagged");
+        $('#flag_button').html('Unflag');
+      }
+    }
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+// archive
+$('.archive_button').click( function(){
+	$('#cover-spin').show();
+  $.ajax({
+    url: "/taggingstudio/flashcards/card/post/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC/340",
+    data: {'packet': 'archive'},
+    method: 'POST',
+    success: function(data) {
+      goBack();
+    }
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+// delete
+$('.delete_button').click( function(){
+  $.ajax({
+    url: "/taggingstudio/flashcards/card/post/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC/340",
+    data: {'packet': 'delete'},
+    method: 'POST',
+    success: function(data) {
+			$('#cover-spin').hide();
+			goBack();
+    }
+  });
+});
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+// submit card to system
+$('.submit_flashcard').click( function(){
+
+
+	if (navigator.onLine == false ) {
+		// user is offline, show offline indicator on page
+		alert('You are offline!');
+		return false;
+	}
+
+
+
+  // first check to make sure ALL classifiers are selected
+  var selected_rows_array = [];
+  $('.classifier_group').each(function () {
+      var numItems = $(this).find('.clf_selected').length;
+      selected_rows_array.push(numItems);
+  });
+  
+  if (!selected_rows_array.includes(0)) {
+  
+
+    $('button.submit_flashcard').hide();
+    $('#loading_button').show();
+    $('#action_button').hide();
+    $('#classifier_button,#entities_button,#tools_button').addClass('disabled');
+    $('#cover-spin').show()
+
+
+      // CLASSIFIERS
+      var classifiers = [];
+      $('.classifier_group').each(function () {
+
+      // basic clf info
+      var clf_id = $(this).data('clf_id');
+      var clf_title = $(this).data('clf_title');
+      var me = $(this).data('me');
+
+      // loop over the selected options in this classifier group
+      var selected_options = [];
+      $(this).find('.clf_selected').each(function () {
+        var option_id = $(this).data('option_id');
+        var option_title = $(this).data('option_title');
+
+        var t = new Object();
+        t.option_id = option_id;
+        t.option_title = option_title;
+
+        selected_options.push(t);
+      });
+
+      // grab all visible options to the user
+      var options = [];
+      $(this).find('.clf_option').each(function () {
+        var option_id = $(this).data('option_id');
+        var option_title = $(this).data('option_title');
+
+        var t = new Object();
+        t.option_id = option_id;
+        t.option_title = option_title;
+
+        options.push(t);
+      });
+
+      // package into json format and append to list
+      var tempjson = new Object();
+      tempjson.clf_id = clf_id;
+      tempjson.clf_title = clf_title;
+      tempjson.me = me;
+      tempjson.selected = selected_options;
+      tempjson.options = options;
+      classifiers.push(tempjson);
+    });
+
+
+		
+      // ENTITIES
+      var entities = [];
+      $('div.entity').each(function () {
+
+        var diventity = $(this);
+
+        var obj = new Object();
+        obj.ent_id = $(this).data("ent_id");
+        obj.ent_title = $(this).data("ent_title");
+        obj.ent_label = $(this).data("label");
+        obj.ent_label_hash = $(this).data("label_hash");
+
+        var idArray1 = [];
+        $(this).find('span.entity').each(function(item) {
+          idArray1.push($(this).data('char_offset_start'));
+        });
+        var minValueInArray = Math.min.apply(Math, idArray1);
+
+        var idArray2 = [];
+        $(this).find('span.entity').each(function(item) {
+          idArray2.push($(this).data('char_offset_end'));
+        });
+        var maxValueInArray = Math.max.apply(Math, idArray2);
+
+        obj.char_offset_start = minValueInArray;
+        obj.char_offset_end = maxValueInArray;
+
+        // grab list of words in the group
+        var words = [];
+        var hi2 = $(this).find('span.word');
+        $(hi2.get()).each(function (idx, selected) {
+          w = new Object();
+          w.token_id = $(selected).data('token_id');
+          w.word = $(selected).data('word');
+          w.char_offset_start = $(selected).data('char_offset_start');
+          w.char_offset_end = $(selected).data('char_offset_end');
+          w.ent_id = $(selected).data('ent_id');
+          w.ent_title = $(selected).data('ent_title');
+          w.label = $(selected).data('label');
+          w.label_hash = $(selected).data('label_hash');
+          words.push(w);
+        });
+        obj.words = words;
+
+        //
+        entities.push(obj);
+      });
+
+      // ENTITY OPTIONS AVAILABLE
+      var visible_ents = [];
+      $('.visible_entity').each(function () {
+      var obj = new Object();
+      obj.ent_id = $(this).data("ent_id");
+      obj.ent_title = $(this).data("ent_title");
+      visible_ents.push(obj);
+    });
+		
+
+
+    // stringify
+      var classifiers2 = JSON.stringify(classifiers);
+
+
+    // attachments
+    var attachments = [];
+    $('.attachment_content').each(function () {
+
+      // basic clf info
+      var attachment_id = $(this).data('attachment_id');
+      var attachment_content = $(this).val();
+
+      // package into json format and append to list
+      var a = new Object();
+      a.attachment_id = attachment_id;
+      a.attachment_content = attachment_content;
+      attachments.push(a);
+
+    });
+    var attachments2 = new Object();
+    attachments2.attachments = attachments;
+    var attachments3 = JSON.stringify(attachments2);
+
+
+
+
+
+		
+      var entities2 = JSON.stringify(entities);
+      alert(entities2);
+      var visible_ents2 = JSON.stringify(visible_ents);
+		
+
+
+    // SUBMIT CLASSIFIERS, ENTITIES, VISIBLE_ENTS
+    $.ajax({
+      //url: "/taggingstudio/flashcards/card/post/0SCO2jM_xJCGhvAkUzUOGS_L__R2t_oJHG2SnTLf01HC/340",
+      url: "",
+      data: {'packet': 'submission', 'attachments': attachments3, 'classifiers': classifiers2,	'entities': entities2, 'visible_ents': visible_ents2, 'start_time': '2021-03-03 08:50:35'},
+      method: 'POST',
+      success: function(data) {
+        if (data['result_type']=='error') {
+          $('#error_modal').find('.modal-body').html(data['msg']);
+          $('#error_button').click();
+          $('button.submit_flashcard').show();
+          $('#loading_button').hide();
+          $('#action_button').show();
+          $('#classifier_button,#entities_button,#tools_button').removeClass('disabled');
+          //$('body,#header').removeClass('submitting');
+          $('#cover-spin').hide();
+        }
+        if (data['result_type']=='success') {
+          
+          //$('#saved_button').click();
+          $('button.submit_flashcard').show();
+          $('#loading_button').hide();
+          $('#action_button').show();
+          $('#classifier_button,#entities_button,#tools_button').removeClass('disabled');
+          $('#cover-spin').hide();
+          window.location.reload();
+          
+        }
+      }
+    });
+  
+  }
+  else {
+    $('#warning_button').click();
+  }
+  
+}); // end of submit
+
+
+////////////////////////////////////////////////////////////////////////////////
+// load spinner for skip, back, and exit buttons
+$(".navigate").click(function(){
+  $('#cover-spin').show()
+});
+
+
+}); // end of script
+
+
+
+
+
+</script>
+
+
+
+
+<script>
+// back
+function goBack() {
+  window.history.back();
+}
+
+$('span,a,div,button').not(".close, .close2, .nospin").on("click", function(){
+  var attr = $(this).attr('onclick');
+  var href = $(this).attr('href');
+  if ((typeof attr !== typeof undefined && attr !== false) || (typeof href !== typeof undefined && href !== false)) {
+    $('#cover-spin').show();
+  }
+});
+
+// js for datetime: UTC => local time (including minutes)
+$('.datetime').each(function () {
+  var dater = $(this).html()
+  var date = new Date(dater);
+  var date2 = date.getFullYear()
+  + "-" + String(date.getMonth() + 1).padStart(2, "0")
+  + "-" + String(date.getDate()).padStart(2, "0")
+  + " " + String(date.getHours()).padStart(2, "0")
+  + ":" + String(date.getMinutes()).padStart(2, "0")
+  //+ ":" + String(date.getSeconds()).padStart(2, "0")
+  $(this).html(date2);
+});
+
+// js for datetime: UTC => local time (just date)
+$('.date').each(function () {
+  var dater = $(this).html()
+  var date = new Date(dater);
+  var date2 = date.getFullYear()
+  + "-" + String(date.getMonth() + 1).padStart(2, "0")
+  + "-" + String(date.getDate()).padStart(2, "0")
+  $(this).html(date2);
+});
+
+</script>
+</body></html>
