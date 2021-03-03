@@ -479,3 +479,8 @@ $('.submit_flashcard').click( function(){
 ## Deliverables
 
 The main deliverable is a set of javascript functions that can allow users to highlight-to-select, but still keeping the same `entities2` format when the user clicks 'submit'.
+
+
+Things to note:
+- make sure your highlight-to-select javascript function(s) creates the EXACT output as `entities2` in the sample above
+- test to make sure it works with the RA.html file
