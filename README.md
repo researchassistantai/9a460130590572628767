@@ -120,18 +120,18 @@ Level | class | Description
 By default, the document starts with 1 `token_group` class and 1 `word` class inside it.
 
 Each `token_group` class div tag must also have the following data attributes:
-- `data-temp_span_id` ()
-- `data-label` ()
-- `data-label_hash` ()
-- `data-ent_title` ()
-- `data-ent_id` ()
+- `data-temp_span_id`
+- `data-label` 
+- `data-label_hash` 
+- `data-ent_title` 
+- `data-ent_id` 
 
 
 Each `word` class div tag must also have the following data attributes:
-- `data-token_id`="0"
-- `data-word`="Toronto"
-- `data-char_offset_start`="0"
-- `data-char_offset_end`="7"
+- `data-token_id`
+- `data-word`
+- `data-char_offset_start`
+- `data-char_offset_end`
 
 
 
